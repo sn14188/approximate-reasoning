@@ -4,19 +4,19 @@ import matplotlib.pyplot as plt
 REJECTED = -1
 
 def rejection_sampling():
-    rs_df = pd.read_csv("rs_1.csv", header=None, names=["val"])
+    rs_df = pd.read_csv("rs_1.csv", header=None, names=["result"])
     num_samples, num_samples_accepted, num_samples_rejected = 0, 0, 0
     val_1_counter, val_2_counter = 0, 0
     probs_1, probs_2 = [], []
     upper_confidence_bounds, lower_confidence_bounds = [], []
 
-    for val in rs_df["val"]:
+    for result in rs_df["result"]:
         num_samples += 1
-        if val != REJECTED:
+        if result != REJECTED:
             num_samples_accepted += 1
-            if val == 1:
+            if result == 1:
                 val_1_counter += 1
-            elif val == 2:
+            elif result == 2:
                 val_2_counter += 1
             else:
                 raise ValueError("")
